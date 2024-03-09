@@ -1,1 +1,32 @@
-Lux000
+<html>
+<script>
+    var i = 0
+    var mausklick = function(){
+        i++;
+        var steine = document.getElementById("steine");
+        steine.value = i
+    }
+</script>
+<script>
+    var kauf1 = function(){
+        var steine = document.getElementById("steine");
+        if (i >= 20) {
+            i-=20;
+        steine.value = i;
+        var kaufb1 = document.getElementById("kaufb1");
+        kaufb1.disabled=true;
+        }
+        else {alert("Deine Oma schaut dich enttäuscht an.")
+        }
+    }
+</script>
+
+<h1 style="position:fixed; top:20px; right:790px">Ob du </h1>
+<br>
+<br>
+<button onClick="mausklick()" style="border:none; background:none; box-shadow:none;">  <img src="stein.png" width="100" height="100" style="position: fixed; top:160px; right:1000px;"> </button>
+<p1 style="position:fixed; top:280px; right:1090px; font-size:30px"> Steine: </p1> <input type="text" id="steine" value="0" readonly style="position:fixed; top:280px; right:700px; font-size:30px; border:none">  </input>
+<br>
+<p> <input type="button" onClick="kauf1()" id="kaufb1" value="Bezahl deiner Oma 20 Steine um ihre Hilfe in Anspruch zu nehmen."> </p>
+
+</html>
