@@ -1,7 +1,7 @@
 <html>
     <h1 style="text-align: center; top:20px; ">Kannst du steinreich werden?</h1>
-    <label for="ziel"> Sammle 50 Steine um die nächste Stufe zu erreichen</label>
-    <p> <progress id="ziel" max="50" value=0>0%</progress></p>
+    <label for="ziel"> Sammle 80 Steine um die nächste Stufe zu erreichen</label>
+    <p> <progress id="ziel" max="80" value=0>0%</progress></p>
     <br>
     <br>
     <button onClick="mausklick()" style="border:none; background:none; box-shadow:none;">  <img src="stein.png" width="100" height="100" style="position: fixed; top:160px; right:1000px;"> </button>
@@ -54,7 +54,7 @@
     var zielerreicht = false;
     var nextlevel = function(){
         var zielfortschritt = document.getElementById("ziel");
-        if (zielfortschritt.value >= 50 && !zielerreicht) {
+        if (zielfortschritt.value >= 80 && !zielerreicht) {
         alert("Du hast das nächste Level erreicht. Deine Oma arbeitet jetzt härter.");
         delay = 100;
         zielerreicht = true; }
