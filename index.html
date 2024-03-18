@@ -1,11 +1,24 @@
 <html>
+    <h1 style="text-align: center; top:20px; ">Kannst du steinreich werden?</h1>
+    <label for="ziel"> Erreiche 50 Steine um die nächste Stufe zu erreichen</label>
+    <p> <progress id="ziel" max="50" value=0>0%</progress></p>
+    <br>
+    <br>
+    <button onClick="mausklick()" style="border:none; background:none; box-shadow:none;">  <img src="stein.png" width="100" height="100" style="position: fixed; top:160px; right:1000px;"> </button>
+    <p1 style="position:fixed; top:280px; right:1090px; font-size:30px"> Steine: </p1> <input type="text" id="steine" value="0" readonly style="position:fixed; top:280px; right:700px; font-size:30px; border:none">  </input>
+    <br>
+    <p> <input type="button" onClick="kauf1()" onmouseover="kauf1info()" onmouseout="kauf1infoend()" id="kaufb1" value="Bezahl deiner Oma 20 Steine um ihre Hilfe in Anspruch zu nehmen."> </p>
+    <p style="visibility:hidden" id="infotext1">+2 Steine/s</p>
 <script>
+    const zielfortschritt = document.getElementById("ziel");
     var i = 0
-    const delay = 500;
+    let delay = 500;
     var mausklick = function(){
         i++;
         var steine = document.getElementById("steine");
         steine.value = i
+        zielfortschritt.value = i;
+        nextlevel();
     }
 </script>
 <script>
@@ -13,6 +26,8 @@
         setTimeout(function(){
             i++;
             steine.value = i;
+            zielfortschritt.value = i;
+            nextlevel();
             oma();
         }, delay);}
 
@@ -21,6 +36,8 @@
         if (i >= 20) {
             i-=20;
             steine.value = i;
+            zielfortschritt.value = i;
+            nextlevel();
             var kaufb1 = document.getElementById("kaufb1");
             kaufb1.disabled=true;
             oma();}
@@ -34,17 +51,20 @@
         var infotext1 = document.getElementById("infotext1")
         infotext1.style.visibility="hidden"
     }
+    var zielerreicht = false;
+    var nextlevel = function(){
+        var zielfortschritt = document.getElementById("ziel");
+        if (zielfortschritt.value >= 50 && !zielerreicht) {
+        alert("Du hast das nächste Level erreicht. Deine Oma arbeitet jetzt härter.");
+        delay = 100;
+        zielerreicht = true; }
+
+        
+    }
         
 
         
 </script>
 
-<h1 style="text-align: center; top:20px; ">Kannst du steinreich werden?</h1>
-<br>
-<br>
-<button onClick="mausklick()" style="border:none; background:none; box-shadow:none;">  <img src="stein.png" width="100" height="100" style="position: fixed; top:160px; right:1000px;"> </button>
-<p1 style="position:fixed; top:280px; right:1090px; font-size:30px"> Steine: </p1> <input type="text" id="steine" value="0" readonly style="position:fixed; top:280px; right:700px; font-size:30px; border:none">  </input>
-<br>
-<p> <input type="button" onClick="kauf1()" onmouseover="kauf1info()" onmouseout="kauf1infoend()" id="kaufb1" value="Bezahl deiner Oma 20 Steine um ihre Hilfe in Anspruch zu nehmen."> </p>
-<p style="visibility:hidden" id="infotext1">+2 Steine/s</p>
+
 </html>
